@@ -4,11 +4,11 @@
 
 Copy the sources to your docker host and build the container:
 
-	# docker build --rm -t <username>/ssh:centos7 .
+	# docker build --rm -t aouachani/ssh:centos7 .
 
 To run:
 
-	# docker run -d -p 22 <username>/ssh:centos7
+	# docker run -dit --name Web1 -p 22 aouachani/ssh:centos7
 
 Get the port that the container is listening on:
 
