@@ -2,9 +2,9 @@
 
 __create_user() {
 # Create a user to SSH into as.
-useradd user
-SSH_USERPASS=newpass
-echo -e "$SSH_USERPASS\n$SSH_USERPASS" | (passwd --stdin user)
+useradd ansible
+SSH_USERPASS=ansible
+echo -e "$SSH_USERPASS\n$SSH_USERPASS" | (passwd --stdin ansible)
 echo ssh user password: $SSH_USERPASS
 }
 
