@@ -12,6 +12,9 @@ RUN yum -y install openssh-server passwd; yum clean all
 ADD ./start.sh /start.sh
 RUN mkdir /var/run/sshd
 
+#RUN useradd -p $(openssl passwd -1 ansible) ansible
+#RUN usermod -aG wheel ansible
+
 #To get arround the issue of timeout
 #RUN echo "UseDNS no" >> /etc/ssh/sshd_config
 

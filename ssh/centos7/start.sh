@@ -6,6 +6,7 @@ useradd ansible
 SSH_USERPASS=ansible
 echo -e "$SSH_USERPASS\n$SSH_USERPASS" | (passwd --stdin ansible)
 echo ssh user password: $SSH_USERPASS
+usermod -aG wheel ansible
 }
 
 # Call all functions
