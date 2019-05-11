@@ -5,9 +5,14 @@ LABEL Vendor="CentOS" \
       Version=2.4.6-40
 
 
-RUN yum -y --setopt=tsflags=nodocs update && \
-    yum -y --setopt=tsflags=nodocs install httpd && \
-    yum clean all
+RUN yum -y --setopt=tsflags=nodocs update; yum -y --setopt=tsflags=nodocs install httpd openssh-server passwd sudo; yum clean all;
+
+#RUN yum -y install openssh-server passwd sudo; yum clean all
+
+ADD ./start.sh /start.sh
+RUN mkdir /var/run/sshd
+RUN chmod 755 /start.sh
+RUN ./start.sh
 
 EXPOSE 80
 
@@ -15,4 +20,15 @@ EXPOSE 80
 ADD run-httpd.sh /run-httpd.sh
 RUN chmod -v +x /run-httpd.sh
 
+#CMD ["/run-httpd.sh"]
+
+ADD ./entrypoint.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
+#CMD ["./entrypoint.sh"]
+
+
 CMD ["/run-httpd.sh"]
+
+#ENTRYPOINT ["./entrypoint.sh"]
+
+#CMD ["/run-httpd.sh"]

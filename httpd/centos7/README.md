@@ -8,7 +8,7 @@ CentOS Dockerfile for Apache httpd
 Copy the sources down and do the build
 
 ```
-# docker build --rm -t <username>/httpd .
+# docker build --rm -t aouachani/httpd-centos7 .
 ```
 
 ## Usage
